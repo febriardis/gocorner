@@ -20,13 +20,7 @@ class AuthController extends Controller
 
     public function regist(Request $req) {
         $cek = User::where('email', $req->input('email'))->first();
-        $this->validate($req, [
-            'nama' => 'required|string|max:255',
-            'email' => 'required|string|max:255',
-            'no_hp' => 'required|string|max:255',
-            'alamat' => 'required|string|max:255',
-            'password' => 'required|string|min:6|',//regex:/^.*(?=.*[a-zA-Z])(?=.*[0-9]).*$/',
-        ]);
+
         if (!$cek) {
             $tb = new User;
             $tb->nama     = $req->input('nama');
@@ -34,10 +28,11 @@ class AuthController extends Controller
             $tb->no_hp    = $req->input('no_hp');
             $tb->alamat   = $req->input('alamat');
             $tb->password = Hash::make($req->input('password'));
-            if ($tb->save()) {
-                return response()->json('Berhasil Mendaftar');
-            }else{
+            if ($tb->nama == '') {
                 return response()->json('Data Belum Lengkapll');
+            }else{
+                $tb->save()
+                return response()->json('Berhasil Mendaftar');
             }
             //$tb->save();
             //return response()->json('Berhasil Mendaftar');

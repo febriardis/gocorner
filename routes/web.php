@@ -24,3 +24,7 @@ $router->get('/findwarung/{id}', 'WarungController@find');
 $router->post('/tambahwarung', 'WarungController@insert');
 $router->put('/updatewarung/{id}', 'WarungController@update');
 $router->delete('/hapuswarung/{id}', 'WarungController@delete');
+
+$router->get('/', function(){
+	return "HAI";
+});

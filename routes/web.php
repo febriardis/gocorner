@@ -17,6 +17,7 @@
 
 //===========================================================
 $router->get('/showuser', 'AuthController@show');
+$router->delete('/hapususer/{id}', 'AuthController@delete');
 $router->post('/register', 'AuthController@regist');
 $router->post('/login', 'AuthController@login');
 //===========================================================

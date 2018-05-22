@@ -15,6 +15,7 @@
 //    return $router->app->version();
 //});
 
+$router->get('/', function(){ return "HAI"; });
 //===========================================================
 $router->get('/showuser', 'AuthController@show');
 $router->get('/hapususer/{id}', 'AuthController@delete');
@@ -25,8 +26,4 @@ $router->get('/showwarung', 'WarungController@showall');
 $router->get('/findwarung/{id}', 'WarungController@find');
 $router->post('/tambahwarung', 'WarungController@insert');
 $router->put('/updatewarung/{id}', 'WarungController@update');
-$router->delete('/hapuswarung/{id}', 'WarungController@delete');
-
-$router->get('/', function(){
-	return "HAI";
-});
+$router->get('/hapuswarung/{id}', 'WarungController@delete');

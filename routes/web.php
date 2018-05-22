@@ -16,6 +16,7 @@
 //});
 
 //===========================================================
+$router->get('/showuser', 'AuthController@show');
 $router->post('/register', 'AuthController@regist');
 $router->post('/login', 'AuthController@login');
 //===========================================================

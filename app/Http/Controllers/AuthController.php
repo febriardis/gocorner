@@ -18,6 +18,11 @@ class AuthController extends Controller
         //
     }
 
+    public function show(){
+        $tb = User::all();
+        return response()->json($tb);
+    }
+
     public function regist(Request $req) {
         $cek = User::where('email', $req->input('email'))->first();
 

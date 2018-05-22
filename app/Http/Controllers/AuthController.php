@@ -25,7 +25,9 @@ class AuthController extends Controller
 
     public function regist(Request $req) {
         $cek = User::where('email', $req->input('email'))->first();
-
+        if ($req->all() == "") {
+            return response()->json('Data Belum Lengkap');
+        }else{
         if (!$cek) {
             $tb = new User;
             $tb->nama     = $req->input('nama');
@@ -37,7 +39,8 @@ class AuthController extends Controller
 
             return response()->json('Berhasil Mendaftar');
         }else{
-            return response()->json([ 'message' => 'Username Sudah Terdaftar' ]);    
+            return response()->json([ 'message' => 'Email Sudah Terdaftar' ]);    
+        }
         }
     }
 

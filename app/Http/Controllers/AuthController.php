@@ -25,9 +25,13 @@ class AuthController extends Controller
 
     public function regist(Request $req) {
         $cek = User::where('email', $req->input('email'))->first();
-        if ($req->all() == "") {
-            return response()->json('Data Belum Lengkap');
-        }else{
+        $this->validate($req, [
+            'nama' => 'required|string|max:255',
+            'email' => 'required|string|max:255',
+            'no_hp' => 'required|string|max:255',
+            'alamat' => 'required|string|max:255',
+            'password' => 'required|string|min:6|regex:/^.*(?=.*[a-zA-Z])(?=.*[0-9]).*$/',
+        ]);
         if (!$cek) {
             $tb = new User;
             $tb->nama     = $req->input('nama');
@@ -40,7 +44,6 @@ class AuthController extends Controller
             return response()->json('Berhasil Mendaftar');
         }else{
             return response()->json([ 'message' => 'Email Sudah Terdaftar' ]);    
-        }
         }
     }
 
@@ -63,6 +66,8 @@ class AuthController extends Controller
 
 
     public function delete($id){
+        //$tb = User::find($id);
+        //$tb->delete();
         User::destroy($id);   
         return response()->json('Data Berhasil Dihapus');
     }

@@ -37,7 +37,7 @@ class AuthController extends Controller
             if ($tb->save()) {
                 return response()->json('Berhasil Mendaftar');
             }else{
-                return response()->json('Data Belum Lengkap');
+                return response()->json('Data Belum Lengkapll');
             }
             //$tb->save();
             //return response()->json('Berhasil Mendaftar');

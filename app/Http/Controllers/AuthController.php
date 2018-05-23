@@ -19,7 +19,6 @@ class AuthController extends Controller
     }
 
     public function regist(Request $req) {
-        $cek = User::where('email', $req->input('email'))->first();
         //$this->validate($req, [
         //    'nama' => 'required|string|max:255',
         //    'email' => 'required|email|max:255|regex:/(.*)@myemail\.com/i',
@@ -27,7 +26,7 @@ class AuthController extends Controller
         //    'alamat' => 'required|string|min:6|max:255',
         //    'password' => 'required|string|min:6|regex:/^.*(?=.*[a-zA-Z])(?=.*[0-9]).*$/',//|confirmed',
         //]);
-        
+        $cek = User::where('email', $req->input('email'))->first();
         if (!$cek) {
             $tb = new User;
             $tb->nama     = $req->input('nama');
@@ -35,10 +34,11 @@ class AuthController extends Controller
             $tb->no_hp    = $req->input('no_hp');
             $tb->alamat   = $req->input('alamat');
             $tb->password = Hash::make($req->input('password'));
+            $tb->save();
 
             return response()->json('Berhasil Mendaftar');    
         }else{
-            return response()->json([ 'message' => 'Email Sudah Terdaftar' ]);    
+            return response()->json('Email Sudah Terdaftar' );    
         }
     }
 
@@ -49,12 +49,12 @@ class AuthController extends Controller
 
         $cek = User::where('email', $email)->first();
         if (!$cek) {
-            return response()->json(['message' => 'Email Tidak Terdaftar']);
+            return response()->json('Email Tidak Terdaftar');
         }else {
             if ($hasher->check($password, $cek->password)) {
-                return response()->json(['message'=>'Berhasil Login']);
+                return response()->json('Berhasil Login');
             }else{
-                return response()->json(['message'=>'Password Salah!']);
+                return response()->json('Password Salah!');
             }
         }
     }

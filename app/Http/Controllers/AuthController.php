@@ -57,13 +57,13 @@ class AuthController extends Controller
         }
     }
 
-    // public function show(){
-    //     $tb = User::all();
-    //     return response()->json($tb);
-    // }
+    public function show(){
+        $tb = User::all();
+        return response()->json($tb);
+    }
 
-    // public function delete($id){
-    //     User::destroy($id);   
-    //     return response()->json('Data Berhasil Dihapus');
-    // }
+    public function delete($id){
+        User::destroy($id);   
+        return response()->json('Data Berhasil Dihapus');
+    }
 }

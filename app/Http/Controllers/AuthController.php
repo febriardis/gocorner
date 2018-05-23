@@ -27,6 +27,7 @@ class AuthController extends Controller
         //    'alamat' => 'required|string|min:6|max:255',
         //    'password' => 'required|string|min:6|regex:/^.*(?=.*[a-zA-Z])(?=.*[0-9]).*$/',//|confirmed',
         //]);
+        
         if (!$cek) {
             $tb = new User;
             $tb->nama     = $req->input('nama');
@@ -34,6 +35,7 @@ class AuthController extends Controller
             $tb->no_hp    = $req->input('no_hp');
             $tb->alamat   = $req->input('alamat');
             $tb->password = Hash::make($req->input('password'));
+
             return response()->json('Berhasil Mendaftar');    
         }else{
             return response()->json([ 'message' => 'Email Sudah Terdaftar' ]);    

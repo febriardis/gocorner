@@ -20,7 +20,13 @@ class AuthController extends Controller
 
     public function regist(Request $req) {
         $cek = User::where('email', $req->input('email'))->first();
-
+        $this->validate($req, [
+            'nama' => 'required|string|max:255',
+            'email' => 'required|email|max:255|regex:/(.*)@myemail\.com/i',
+            'no_hp' => 'required|regex:/(01)[0-9]{9}/',
+            'alamat' => 'required|string|min:6|max:255',
+            'password' => 'required|string|min:6|regex:/^.*(?=.*[a-zA-Z])(?=.*[0-9]).*$/',//|confirmed',
+        ]);
         if (!$cek) {
             $tb = new User;
             $tb->nama     = $req->input('nama');
@@ -28,14 +34,7 @@ class AuthController extends Controller
             $tb->no_hp    = $req->input('no_hp');
             $tb->alamat   = $req->input('alamat');
             $tb->password = Hash::make($req->input('password'));
-            if ($tb->nama == '') {
-                return response()->json('Data Belum Lengkapll');
-            }else{
-                $tb->save();
-                return response()->json('Berhasil Mendaftar');
-            }
-            //$tb->save();
-            //return response()->json('Berhasil Mendaftar');
+            return response()->json('Berhasil Mendaftar');    
         }else{
             return response()->json([ 'message' => 'Email Sudah Terdaftar' ]);    
         }
@@ -58,13 +57,13 @@ class AuthController extends Controller
         }
     }
 
-    public function show(){
-        $tb = User::all();
-        return response()->json($tb);
-    }
+    // public function show(){
+    //     $tb = User::all();
+    //     return response()->json($tb);
+    // }
 
-    public function delete($id){
-        User::destroy($id);   
-        return response()->json('Data Berhasil Dihapus');
-    }
+    // public function delete($id){
+    //     User::destroy($id);   
+    //     return response()->json('Data Berhasil Dihapus');
+    // }
 }

@@ -17,8 +17,8 @@
 
 $router->get('/', function(){ return "HAI"; });
 //===========================================================
-$router->get('/showuser', 'AuthController@show');
-$router->get('/hapususer/{id}', 'AuthController@delete');
+//$router->get('/showuser', 'AuthController@show');
+//$router->get('/hapususer/{id}', 'AuthController@delete');
 $router->post('/register', 'AuthController@regist');
 $router->post('/login', 'AuthController@login');
 //===========================================================

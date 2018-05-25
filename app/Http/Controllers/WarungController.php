@@ -36,15 +36,15 @@ class WarungController extends Controller
         //$tb->deskripsi = $req->input('deskripsi');
 		//$tb->save();
 		Warung::create($req->all());
-		return response()->json(['message'=>'Data Berhasil Disimpan']);
+		return response()->json('Data Berhasil Disimpan');
 	}
 	public function update(Request $req, $id){
 		$tb = Warung::find($id);
 		$tb->update($req->all());
-		return response()->json(['message'=>'Data Berhasil Diupdate']);
+		return response()->json('Data Berhasil Diupdate');
 	}
 	public function delete($id){
 		$tb = Warung::destroy($id);
-		return response()->json(['message'=>'Data Berhasil Dihapus']);
+		return response()->json('Data Berhasil Dihapus');
 	}
 }

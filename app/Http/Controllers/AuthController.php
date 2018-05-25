@@ -52,7 +52,7 @@ class AuthController extends Controller
             return response()->json('Email Tidak Terdaftar');
         }else {
             if ($hasher->check($password, $cek->password)) {
-                return response()->json(['Anda Berhasil Login']);
+                return response()->json('Berhasil Login Goner');
             }else{
                 return response()->json('Password Salah!');
             }

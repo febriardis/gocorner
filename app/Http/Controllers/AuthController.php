@@ -28,7 +28,7 @@ class AuthController extends Controller
             $tb->alamat   = $req->input('alamat');
             $tb->password = Hash::make($req->input('password'));
             $tb->save();
-            return response()->json($tb, 201);//json('Berhasil Mendaftar Goner',200);    
+            return response()->json($tb, 200);//json('Berhasil Mendaftar Goner',200);    
         }else{
             return response()->json($tb, 200);    
         }

@@ -19,24 +19,21 @@ class KategoriController extends Controller
     }
 	
 	public function showall(){
-		$tb = Kategori::all();
-		return response()->json($tb);
+		return response()->json(Kategori::all());
 	}
 	public function find($id){
-		$tb = Kategori::find($id);
-		return response()->json($tb);
+		return response()->json(Kategori::find($id));
 	}
 	public function insert(Request $req){
 		Kategori::create($req->all());
-		return response()->json('Data Berhasil Disimpan');
+		return response()->json('Data Berhasil Disimpan', 200);
 	}
 	public function update(Request $req, $id){
-		$tb = Kategori::find($id);
-		$tb->update($req->all());
-		return response()->json('Data Berhasil Diupdate');
+		$tb = Kategori::findOrFail($id)->update($req->all());
+		return response()->json('Data Berhasil Diupdate', 200);
 	}
 	public function delete($id){
-		$tb = Kategori::destroy($id);
-		return response()->json('Data Berhasil Dihapus');
+		Kategori::findOrFail($id)->delete();
+		return response()->json('Data Berhasil Dihapus', 200);
 	}
 }

@@ -19,31 +19,29 @@ class WarungController extends Controller
     }
 	
 	public function showall(){
-		$tb = Warung::all();
-		return response()->json($tb);
+		return response()->json(Warung::all());
 	}
 	public function find($id){
-		$tb = Warung::find($id);
-		return response()->json($tb);
+		return response()->json(Warung::find($id));
 	}
 	public function insert(Request $req){
-        //$tb = new Warung;
-        //$tb->nm_warung = $req->input('nm_warung');
-        //$tb->hp_warung = $req->input('hp_warung');
-        //$tb->almt_warung = $req->input('almt_warung');
-        //$tb->lokasi = $req->input('lokasi');
-        //$tb->deskripsi = $req->input('deskripsi');
-		//$tb->save();
 		Warung::create($req->all());
-		return response()->json('Data Berhasil Disimpan');
+		return response()->json('Data Berhasil Disimpan', 200);
 	}
 	public function update(Request $req, $id){
-		$tb = Warung::find($id);
-		$tb->update($req->all());
-		return response()->json('Data Berhasil Diupdate');
+		$tb = Warung::findOrFail($id)->update($req->all());
+		return response()->json('Data Berhasil Diupdate', 200);
 	}
 	public function delete($id){
-		$tb = Warung::destroy($id);
-		return response()->json('Data Berhasil Dihapus');
+		Warung::findOrFail($id)->update($req->all());
+		return response()->json('Data Berhasil Dihapus', 200);
 	}
 }
+
+//$tb = new Warung;
+//$tb->nm_warung = $req->input('nm_warung');
+//$tb->hp_warung = $req->input('hp_warung');
+//$tb->almt_warung = $req->input('almt_warung');
+//$tb->lokasi = $req->input('lokasi');
+//$tb->deskripsi = $req->input('deskripsi');
+//$tb->save();

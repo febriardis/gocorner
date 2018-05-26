@@ -19,24 +19,21 @@ class TransaksiController extends Controller
     }
 	
 	public function showall(){
-		$tb = Transaksi::all();
-		return response()->json($tb);
+		return response()->json(Transaksi::all());
 	}
 	public function find($id){
-		$tb = Transaksi::find($id);
-		return response()->json($tb);
+		return response()->json(Transaksi::find($id));
 	}
 	public function insert(Request $req){
 		Transaksi::create($req->all());
-		return response()->json('Data Berhasil Disimpan');
+		return response()->json('Data Berhasil Disimpan', 200);
 	}
 	public function update(Request $req, $id){
-		$tb = Transaksi::find($id);
-		$tb->update($req->all());
-		return response()->json('Data Berhasil Diupdate');
+		$tb = Transaksi::findOrFail($id)->update($req->all());
+		return response()->json('Data Berhasil Diupdate', 200);
 	}
 	public function delete($id){
-		$tb = Transaksi::destroy($id);
-		return response()->json('Data Berhasil Dihapus');
+		Transaksi::findOrFail($id)->delete();
+		return response()->json('Data Berhasil Dihapus', 200);
 	}
 }

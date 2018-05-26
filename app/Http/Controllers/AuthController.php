@@ -28,9 +28,10 @@ class AuthController extends Controller
             $tb->alamat   = $req->input('alamat');
             $tb->password = Hash::make($req->input('password'));
             $tb->save();
-            return response()->json($tb, 200);//json('Berhasil Mendaftar Goner',200);    
+
+            return response()->json('Berhasil Mendaftar Goner', 200);    
         }else{
-            return response()->json($tb, 200);    
+            return response()->json('Email Sudah Terdaftar', 201);    
         }
     }
 
@@ -51,15 +52,14 @@ class AuthController extends Controller
         }
     }
 
-    public function show(){
-        $tb = User::all();
-        return response()->json($tb, 200);
-    }
+        public function show(){
+            return response()->json(User::all());
+        }
 
-    public function delete($id){
-        User::destroy($id);   
-        return response()->json('Data Berhasil Dihapus', 200);
-    }
+        public function delete($id){
+            User::findOrFail($id)->delete();   
+            return response()->json('Data Berhasil Dihapus', 200);
+        }
 }
 
 // DB_CONNECTION=mysql

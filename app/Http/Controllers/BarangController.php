@@ -23,20 +23,18 @@ class BarangController extends Controller
 		return response()->json($tb);
 	}
 	public function find($id){
-		$tb = Barang::find($id);
-		return response()->json($tb);
+		return response()->json(Barang::find($id));
 	}
 	public function insert(Request $req){
-		Barang::create($req->all());
-		return response()->json('Data Berhasil Disimpan');
+		$tb = Barang::create($req->all());
+		return response()->json('Data Berhasil Disimpan', 200);
 	}
 	public function update(Request $req, $id){
-		$tb = Barang::find($id);
-		$tb->update($req->all());
-		return response()->json('Data Berhasil Diupdate');
+		$tb = Barang::findOrFail($id)->update($req->all());
+		return response()->json('Data Berhasil Diupdate', 200);
 	}
 	public function delete($id){
-		$tb = Barang::destroy($id);
-		return response()->json('Data Berhasil Dihapus');
+		Barang::findOrFail($id)->delete();
+		return response()->json('Data Berhasil Dihapus', 200);
 	}
 }

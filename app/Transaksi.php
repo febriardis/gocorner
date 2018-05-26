@@ -13,4 +13,7 @@ class Transaksi extends Model
 		'waktu',
 		'status',
 	];
+	function FKtransaksi() {
+		return $this->belongsTo(User::class);
+	}
 }

@@ -10,4 +10,7 @@ class Kategori extends Model
 	protected $fillable = [
 		'nm_kategori',
 	];
+	function PKkategori(){
+		return $this->hasMany(Barang::class);
+	}
 }

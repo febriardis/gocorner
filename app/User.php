@@ -30,4 +30,11 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     protected $hidden = [
         'password',
     ];
+
+    public function PKusers() {
+        return $this->hasMany(Warung::class);//punya primary
+    } 
+    public function PKuser() {
+        return $this->hasMany(Transaksi::class);
+    }
 }

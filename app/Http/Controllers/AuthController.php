@@ -68,3 +68,10 @@ class AuthController extends Controller
 // DB_DATABASE=warung-corner
 // DB_USERNAME=root
 // DB_PASSWORD=
+
+// DB_CONNECTION=pgsql
+// DB_HOST=ec2-23-23-130-158.compute-1.amazonaws.com
+// DB_PORT=5432
+// DB_DATABASE=d2hr7qrtt2aalt
+// DB_USERNAME=ckfqodnspmikaz
+// DB_PASSWORD=334d385d42b2e03cd2ac412ad5ea79b5ebd6713e658684b610522e6a6cec6600

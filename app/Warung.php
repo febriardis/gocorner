@@ -14,4 +14,10 @@ class Warung extends Model
 		'lokasi',
 		'deskripsi',
 	];
+	public function FKwarung() {
+    	return $this->belongsTo(User::class);//punya foreign dari user
+    }
+    public function PKwarung() {
+        return $this->hasMany(Barang::class);//punya primary
+    } 
 }

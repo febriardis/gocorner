@@ -14,4 +14,13 @@ class Barang extends Model
 		'desk_barang',
 		'harga',
 	];
+	function PKbarang() {
+		return $this->hasMany(Transaksi::class);
+	}
+	function FKbarang() {
+		return $this->belongsTo(Warung::class);
+	}
+	function FKbarangs() {
+		return $this->belongsTo(Kategori::class);
+	}
 }

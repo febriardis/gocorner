@@ -12,7 +12,6 @@ class Warung extends Model
 		'nm_warung', 
 		'hp_warung',
 		'almt_warung',
-		'lokasi',
 		'deskripsi',
 	];
 	public function FKwarung() {

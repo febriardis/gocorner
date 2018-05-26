@@ -15,12 +15,16 @@ class TbWarung extends Migration
     {
         Schema::create('tb_warung', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger ('user_id'); //foreign key
             $table->string('nm_warung');
             $table->string('hp_warung');
             $table->string('almt_warung');
-            $table->string('lokasi');
             $table->text('deskripsi');
             $table->timestamps();
+        });
+
+        Schema::table('tb_warung', function(Blueprint $kolom){ //schema initial foreign key
+            $kolom->foreign('user_id')->references('id')->on('tb_users')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

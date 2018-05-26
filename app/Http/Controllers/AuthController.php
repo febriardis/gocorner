@@ -19,13 +19,6 @@ class AuthController extends Controller
     }
 
     public function regist(Request $req) {
-        //$this->validate($req, [
-        //    'nama' => 'required|string|max:255',
-        //    'email' => 'required|email|max:255|regex:/(.*)@myemail\.com/i',
-        //    'no_hp' => 'required|regex:/(01)[0-9]{9}/',
-        //    'alamat' => 'required|string|min:6|max:255',
-        //    'password' => 'required|string|min:6|regex:/^.*(?=.*[a-zA-Z])(?=.*[0-9]).*$/',//|confirmed',
-        //]);
         $cek = User::where('email', $req->input('email'))->first();
         if (!$cek) {
             $tb = new User;
@@ -35,10 +28,9 @@ class AuthController extends Controller
             $tb->alamat   = $req->input('alamat');
             $tb->password = Hash::make($req->input('password'));
             $tb->save();
-
-            return response()->json('Berhasil Mendaftar Goner');    
+            return response()->json($tb, 201);//json('Berhasil Mendaftar Goner',200);    
         }else{
-            return response()->json('Email Sudah Terdaftar' );    
+            return response()->json($tb, 200);    
         }
     }
 
@@ -49,30 +41,30 @@ class AuthController extends Controller
 
         $cek = User::where('email', $email)->first();
         if (!$cek) {
-            return response()->json('Email Tidak Terdaftar');
+            return response()->json('Email Tidak Terdaftar', 200);
         }else {
             if ($hasher->check($password, $cek->password)) {
-                return response()->json('Anda Berhasil Login Goner');
+                return response()->json('Anda Berhasil Login Goner', 200);
             }else{
-                return response()->json('Password Salah!');
+                return response()->json('Password Salah!', 200);
             }
         }
     }
 
     public function show(){
         $tb = User::all();
-        return response()->json($tb);
+        return response()->json($tb, 200);
     }
 
     public function delete($id){
         User::destroy($id);   
-        return response()->json('Data Berhasil Dihapus');
+        return response()->json('Data Berhasil Dihapus', 200);
     }
 }
 
-// DB_CONNECTION=pgsql
-// DB_HOST=ec2-23-23-130-158.compute-1.amazonaws.com
-// DB_PORT=5432
-// DB_DATABASE=d2hr7qrtt2aalt
-// DB_USERNAME=ckfqodnspmikaz
-// DB_PASSWORD=334d385d42b2e03cd2ac412ad5ea79b5ebd6713e658684b610522e6a6cec6600
+// DB_CONNECTION=mysql
+// DB_HOST=localhost
+// DB_PORT=3306
+// DB_DATABASE=warung-corner
+// DB_USERNAME=root
+// DB_PASSWORD=

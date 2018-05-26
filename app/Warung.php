@@ -8,6 +8,7 @@ class Warung extends Model
 {
 	protected $table = 'tb_warung';
 	protected $fillable = [
+		'user_id',
 		'nm_warung', 
 		'hp_warung',
 		'almt_warung',

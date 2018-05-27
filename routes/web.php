@@ -19,6 +19,7 @@
 
 $router->get('/', function(){ return view('home');});
 $router->get('/barang', function(){ return view('barang_dijual');});
+$router->get('/warung', function(){ return view('warung');});
 
 //=========================USET====================================
 $router->get('/showuser', 'AuthController@show');

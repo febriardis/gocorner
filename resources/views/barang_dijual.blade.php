@@ -8,6 +8,7 @@
 					<div class="p-15">
 						<div class="media-body">
 							<strong>MAKANAN RINGAN</strong>
+							<p>Rp. 2.500</p>
 						</div>
 					</div>
 				</div>
@@ -18,6 +19,7 @@
 					<div class="p-15">
 						<div class="media-body">
 							<strong>MAKANAN RINGAN</strong>
+							<p>Rp. 2.500</p>
 						</div>
 					</div>
 				</div>
@@ -28,6 +30,7 @@
 					<div class="p-15">
 						<div class="media-body">
 							<strong>MAKANAN RINGAN</strong>
+							<p>Rp. 2.500</p>
 						</div>
 					</div>
 				</div>
@@ -38,6 +41,7 @@
 					<div class="p-15">
 						<div class="media-body">
 							<strong>MAKANAN RINGAN</strong>
+							<p>Rp. 2.500</p>
 						</div>
 					</div>
 				</div>

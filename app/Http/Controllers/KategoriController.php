@@ -23,6 +23,7 @@ class KategoriController extends Controller
 		return view('home') //response()->json(Kategori::all());
 		->with('tbl', $tabel);
 	}
+
 	public function find($id){
 		return response()->json(Kategori::find($id));
 	}

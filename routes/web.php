@@ -17,9 +17,11 @@
 
 //$router->get('/', function(){ return "Assalamaualaikum..."; });
 
-$router->get('/home', 'KategoriController@showall');
-$router->get('/barang', function(){ return view('barang_dijual');});
-$router->get('/warung', function(){ return view('warung');});
+$router->get('/home', 'KategoriController@showall'); //--
+$router->get('/kategori','KategoriController@showall'); //--
+$router->get('/tambahkanbarang', 'BarangController@insert');
+$router->get('/barang/{id}', 'BarangController@show');
+$router->get('/warung', 'WarungController@showall');
 
 //=========================USET====================================
 $router->get('/showuser', 'AuthController@show');

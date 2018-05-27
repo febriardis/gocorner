@@ -3,7 +3,7 @@
 @section('content')
 	<!-- Page container -->
 		@foreach($tbl as $tb)
-		<a href="/barang">
+		<a href="/barang/{{ $tb->id }}">
 			<div class="col-sm-4 col-lg-2">
 				<div class="panel">
 					<img src="assets/images/placeholder.jpg" style="width: 100%; max-height: 150px" alt="">

@@ -19,7 +19,9 @@ class KategoriController extends Controller
     }
 	
 	public function showall(){
-		return response()->json(Kategori::all());
+		$tabel = Kategori::all();
+		return view('home') //response()->json(Kategori::all());
+		->with('tbl', $tabel);
 	}
 	public function find($id){
 		return response()->json(Kategori::find($id));

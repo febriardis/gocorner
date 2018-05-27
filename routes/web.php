@@ -17,7 +17,7 @@
 
 //$router->get('/', function(){ return "Assalamaualaikum..."; });
 
-$router->get('/home', function(){ return view('home');});
+$router->get('/home', 'KategoriController@showall');
 $router->get('/barang', function(){ return view('barang_dijual');});
 $router->get('/warung', function(){ return view('warung');});
 

@@ -2,7 +2,7 @@
 
 @section('content')
 	<!-- Page container -->
-			<div style="width: 175px; float: left; margin:10px">
+			<div style="width: 190px; float: left; margin:10px">
 				<div class="panel">
 					<img src="assets/images/placeholder.jpg" style="width: 100%; max-height: 120px" alt="">
 					<div class="p-15">
@@ -12,7 +12,7 @@
 					</div>
 				</div>
 			</div>
-			<div style="width: 175px; float: left; margin:10px">
+			<div style="width: 190px; float: left; margin:10px">
 				<div class="panel">
 					<img src="assets/images/placeholder.jpg" style="width: 100%; max-height: 120px" alt="">
 					<div class="p-15">

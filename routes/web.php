@@ -19,7 +19,7 @@
 
 $router->get('/home', 'KategoriController@showall'); //--
 $router->get('/kategori','KategoriController@showall'); //--
-$router->get('/tambahkanbarang', 'BarangController@insert');
+$router->post('/tambahkanbarang', 'BarangController@insert');
 $router->get('/barang/{id}', 'BarangController@show');
 $router->get('/warung', 'WarungController@showall');
 

@@ -15,7 +15,11 @@
 //    return $router->app->version();
 //});
 
-$router->get('/', function(){ return "Assalamaualaikum..."; });
+//$router->get('/', function(){ return "Assalamaualaikum..."; });
+
+$router->get('/', function(){ return view('home');});
+$router->get('/barang', function(){ return view('barang_dijual');});
+
 //=========================USET====================================
 $router->get('/showuser', 'AuthController@show');
 $router->get('/hapususer/{id}', 'AuthController@delete');
